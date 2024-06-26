@@ -37,6 +37,8 @@ function Fetch() {
 }
             `,
     });
+   
+    
   }, []); // Empty dependency array means this effect runs only once, similar to componentDidMount
 
   return <div>Fetch</div>;

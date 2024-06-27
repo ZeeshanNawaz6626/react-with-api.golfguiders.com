@@ -26,7 +26,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://api.golfguiders.com",
+  "proxy": "https://9b34938d-3593-42df-8ce8-fa1d3243308b-us-east-1.apps.astra.datastax.com/api",
   "eslintConfig": {
     "extends": [
       "react-app",

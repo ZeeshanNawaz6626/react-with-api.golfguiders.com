@@ -2,32 +2,13 @@ import React, { useEffect } from "react";
 import ApiClient from "./ApiClient";
 
 function Fetch() {
-  // useEffect(() => {
-  //     console.log("called");
-
-  //     fetch('/graphql', {
-  //         method: "post",
-  //         headers: {
-  //             "Content-Type": "application/json"
-  //         },
-  //         body: JSON.stringify({
-  //             query: `query {
-  //                 getPostsByDistance {
-  //                     postid
-  //                 }
-  //             }`
-  //         })
-  //     })
-  //     .then(res => res.json()) // Convert response to JSON format
-  //     .then(data => console.log(data)) // Log the JSON response data to the console
-  //     .catch(error => console.error('Error fetching data:', error)); // Handle any errors during fetch
-  // }, []); // Empty dependency array means this effect runs only once, similar to componentDidMount
-
   useEffect(() => {
+    const value = { user_id: 'c9816081-a164-42e0-8f74-1b325ef75edd' };
+    const options = { consistency: 'LOCAL_QUORUM' };
     const response = ApiClient.postDataWithVariables("social", {
       query: `
-             query{
-  user_tournament{
+             query($value: user_tournamentInput) {
+          user_tournament(value: $value) {
     values
     {
       user_id
@@ -36,6 +17,7 @@ function Fetch() {
   }
 }
             `,
+            variables: { value: value, options: options },
     });
    
     
